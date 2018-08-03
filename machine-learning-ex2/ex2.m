@@ -61,7 +61,8 @@ pause;
 X = [ones(m, 1) X];
 
 % Initialize fitting parameters
-initial_theta = zeros(n + 1, 1);
+initial_theta = zeros(n + 1, 1); 
+%initial_theta = rand(n + 1, 1);
 
 % Compute and display initial cost and gradient
 [cost, grad] = costFunction(initial_theta, X, y);
@@ -96,7 +97,7 @@ options = optimset('GradObj', 'on', 'MaxIter', 400);
 %  Run fminunc to obtain the optimal theta
 %  This function will return theta and the cost 
 [theta, cost] = ...
-	fminunc(@(t)(costFunction(t, X, y)), initial_theta, options);
+    fminunc(@(t)(costFunction(t, X, y)), initial_theta, options);
 
 % Print theta to screen
 fprintf('Cost at theta found by fminunc: %f\n', cost);
